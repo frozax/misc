@@ -69,9 +69,12 @@ public class fgRandom
 
     // Real functions
     public uint NextUInt() { return ExtractNumber();  }
+    // Can be negative
     public int NextInt() { return unchecked((int)ExtractNumber());  }
     // max is NOT included
     public int NextInt(int max) { return (int)(NextUInt() % max); }
     // between min (included) and max (excluded)
     public int NextInt(int min, int max) { return (int)(NextUInt() % (max - min) + min); }
+    // between 0 and 1 (included)
+    public float NextFloat() { return (float)(NextUInt() % 65536) / 65535.0f; }
 }
